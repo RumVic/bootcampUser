@@ -1,40 +1,25 @@
 package by.itacademy.bootcamp.util.mapper;
 
 import by.itacademy.bootcamp.entity.User;
+import by.itacademy.bootcamp.util.mapper.api.IMap;
 import by.itacademy.bootcamp.util.mapper.api.IMapUser;
 import by.itacademy.bootcamp.util.page.OutPage;
 import by.itacademy.bootcamp.util.page.OutUserDto;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class UserMapper implements IMapUser {
+@Component
+public class UserMapper implements IMap<User, OutUserDto> {
 
-    public OutPage<OutUserDto> map(Page<User> productOutPage) {
-
-        OutPage<OutUserDto> outPage = new OutPage<>();
-
-        outPage.setNumber(productOutPage.getNumber());
-        outPage.setSize(productOutPage.getSize());
-        outPage.setTotalPages(productOutPage.getTotalPages());
-        outPage.setTotalElements((int) productOutPage.getTotalElements());
-        outPage.setFirst(productOutPage.isFirst());
-        outPage.setNumberOfElements(productOutPage.getNumberOfElements());
-        outPage.setLast(productOutPage.isLast());
-
-        List<OutUserDto> list = new ArrayList<>();
-
-        for (User product : productOutPage.getContent()) {
-            OutUserDto userDto = fromEntityToOutput(product);
-            list.add(userDto);
-        }
-
-        outPage.setContent(list);
-        return outPage;
+    public Page<OutUserDto> mapPage(Page<User> productOutPage) {
+        return productOutPage.map(this::map);
     }
 
-    public OutUserDto fromEntityToOutput(User user) {
+    public OutUserDto map(User user) {
 
         OutUserDto dto = new OutUserDto();
         dto.setName(user.getName());

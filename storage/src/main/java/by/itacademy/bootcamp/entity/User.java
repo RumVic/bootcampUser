@@ -8,8 +8,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.UUID;
-
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
@@ -18,7 +16,7 @@ import java.util.UUID;
 public class User {
 
     @Id
-    private UUID id;
+    private String id;
     @Column(name = "name")
     private String name;
     @Column(name = "surname")

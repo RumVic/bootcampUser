@@ -5,9 +5,6 @@ import by.itacademy.bootcamp.util.page.OutPage;
 import by.itacademy.bootcamp.util.page.OutUserDto;
 import org.springframework.data.domain.Page;
 
-public interface IMapUser extends IMap{
+public interface IMapUser extends IMap<User, OutUserDto>{
 
-    OutUserDto fromEntityToOutput(User u);
-
-    OutPage<OutUserDto> map(Page<User> pg);
 }

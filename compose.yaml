@@ -7,27 +7,21 @@ services:
     restart: always
     ports:
       # <Port exposed> : < MySQL Port running inside container>
-      - "3306:3306"
-    volumes:
-      - ./data/db:/var/lib/mysql
+      - "3307:3306"
+#    volumes:
+#      - ./data/db:/var/lib/mysql
     environment:
       MYSQL_DATABASE: "maybe"
       MYSQL_USER: "user"
       MYSQL_PASSWORD: "password"
       MYSQL_ROOT_PASSWORD: "root"
 
-  mysql-workbench:
-    image: lscr.io/linuxserver/mysql-workbench:latest
-    container_name: mysql-workbench
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=Etc/UTC
-    volumes:
-      - /path/to/config:/config
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin
+    container_name: "dev_phpmyadmin"
+    restart: always
     ports:
-      - 3000:3000
-      - 3001:3001
-    cap_add:
-      - IPC_LOCK
-    restart: unless-stopped
+      - 9090:80
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306

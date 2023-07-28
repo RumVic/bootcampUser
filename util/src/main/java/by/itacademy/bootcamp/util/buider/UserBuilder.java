@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class UserBuilder {
     
-    private UUID id;
+    private String id;
     private String name;
     private String surname;
     private String patronymic;
@@ -18,7 +18,7 @@ public class UserBuilder {
         return new UserBuilder();
     }
 
-    public UserBuilder setId(UUID id) {
+    public UserBuilder setId(String id) {
         this.id = id;
         return this;
     }

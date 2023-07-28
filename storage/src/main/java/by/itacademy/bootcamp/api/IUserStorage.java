@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.UUID;
 
 @Repository
-public interface IUserStorage extends JpaRepository<User, UUID> {
+public interface IUserStorage extends JpaRepository<User, String> {
 
     Page<User> findAll(Pageable pageable);
 
