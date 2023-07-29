@@ -6,7 +6,6 @@ import by.itacademy.bootcamp.services.api.IUserService;
 import by.itacademy.bootcamp.util.buider.UserBuilder;
 import by.itacademy.bootcamp.util.dto.InputDto;
 import by.itacademy.bootcamp.util.mapper.api.IMapUser;
-import by.itacademy.bootcamp.util.page.OutPage;
 import by.itacademy.bootcamp.util.page.OutUserDto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;

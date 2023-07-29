@@ -1,6 +1,5 @@
 package by.itacademy.bootcamp.services.api;
 
-import by.itacademy.bootcamp.util.page.OutPage;
 import by.itacademy.bootcamp.util.page.OutUserDto;
 import org.springframework.data.domain.Page;
 

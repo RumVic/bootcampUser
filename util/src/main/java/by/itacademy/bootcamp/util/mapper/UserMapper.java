@@ -2,15 +2,9 @@ package by.itacademy.bootcamp.util.mapper;
 
 import by.itacademy.bootcamp.entity.User;
 import by.itacademy.bootcamp.util.mapper.api.IMap;
-import by.itacademy.bootcamp.util.mapper.api.IMapUser;
-import by.itacademy.bootcamp.util.page.OutPage;
 import by.itacademy.bootcamp.util.page.OutUserDto;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageImpl;
 import org.springframework.stereotype.Component;
-
-import java.util.ArrayList;
-import java.util.List;
 
 @Component
 public class UserMapper implements IMap<User, OutUserDto> {

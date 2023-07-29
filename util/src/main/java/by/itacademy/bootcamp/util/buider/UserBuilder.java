@@ -2,8 +2,6 @@ package by.itacademy.bootcamp.util.buider;
 
 import by.itacademy.bootcamp.entity.User;
 
-import java.util.UUID;
-
 public class UserBuilder {
     
     private String id;

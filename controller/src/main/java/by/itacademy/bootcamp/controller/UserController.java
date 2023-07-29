@@ -2,7 +2,6 @@ package by.itacademy.bootcamp.controller;
 
 import by.itacademy.bootcamp.services.api.IService;
 import by.itacademy.bootcamp.util.dto.InputDto;
-import by.itacademy.bootcamp.util.page.OutPage;
 import by.itacademy.bootcamp.util.page.OutUserDto;
 import lombok.AllArgsConstructor;
 import org.springframework.data.domain.Page;
