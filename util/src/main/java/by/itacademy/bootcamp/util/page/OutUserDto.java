@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.extern.log4j.Log4j2;
 
 import java.util.UUID;
 
@@ -12,8 +13,9 @@ import java.util.UUID;
 @NoArgsConstructor
 @Setter
 @Getter
+@Log4j2
 public class OutUserDto {
-    private UUID id;
+    //private UUID id;
     private String name;
     private String surname;
     private String patronymic;

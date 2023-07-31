@@ -1,9 +1,11 @@
 package by.itacademy.bootcamp.util.buider;
 
 import by.itacademy.bootcamp.entity.User;
+import lombok.extern.log4j.Log4j2;
 
+@Log4j2
 public class UserBuilder {
-    
+
     private String id;
     private String name;
     private String surname;

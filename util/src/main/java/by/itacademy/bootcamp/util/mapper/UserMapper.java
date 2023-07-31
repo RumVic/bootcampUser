@@ -3,10 +3,15 @@ package by.itacademy.bootcamp.util.mapper;
 import by.itacademy.bootcamp.entity.User;
 import by.itacademy.bootcamp.util.mapper.api.IMap;
 import by.itacademy.bootcamp.util.page.OutUserDto;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
 import org.springframework.stereotype.Component;
 
+import java.util.Comparator;
+
+
 @Component
+@Log4j2
 public class UserMapper implements IMap<User, OutUserDto> {
 
     public Page<OutUserDto> mapPage(Page<User> productOutPage) {

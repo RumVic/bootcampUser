@@ -20,9 +20,12 @@
 	<version>0.0.1-SNAPSHOT</version>
 	<name>test</name>
 	<description>Test task for ITBootcamp</description>
-	<properties>
-		<java.version>20</java.version>
-	</properties>
+<!--	<properties>-->
+<!--		<java.version>20</java.version>-->
+<!--		<flyway.user>user</flyway.user>-->
+<!--		<flyway.password>password</flyway.password>-->
+<!--		<flyway.schemas>maybe</flyway.schemas>-->
+<!--	</properties>-->
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -33,10 +36,14 @@
 			<artifactId>spring-boot-starter-jdbc</artifactId>
 		</dependency>
 		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version> 6.2.5.Final</version>
+		</dependency>
+		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-docker-compose</artifactId>
@@ -48,21 +55,51 @@
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.33</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.flywaydb</groupId>
+			<artifactId>flyway-mysql</artifactId>
+		</dependency>
+		<!-- https://mvnrepository.com/artifact/org.flywaydb/flyway-core -->
+<!--		<dependency>-->
+<!--			<groupId>io.micronaut.configuration</groupId>-->
+<!--			<artifactId>micronaut-flyway</artifactId>-->
+<!--			<version>1.0.0.RC3</version>-->
+<!--		</dependency>-->
 		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 			<optional>true</optional>
 		</dependency>
+
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
+		<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
 
+	</dependencies>
 	<build>
 		<plugins>
+			<plugin>
+				<groupId>org.flywaydb</groupId>
+				<artifactId>flyway-maven-plugin</artifactId>
+				<version>9.21.1</version>
+			</plugin>
+<!--			<plugin>-->
+<!--				<groupId>org.flywaydb</groupId>-->
+<!--				<artifactId>flyway-maven-plugin</artifactId>-->
+<!--				<version>4.0.3</version>-->
+<!--				<configuration>-->
+<!--					<user>user</user>-->
+<!--					<password>password</password>-->
+<!--					<schemas>-->
+<!--						<schema>maybe</schema>-->
+<!--					</schemas>-->
+<!--				</configuration>-->
+<!--			</plugin>-->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
@@ -77,5 +114,4 @@
 			</plugin>
 		</plugins>
 	</build>
-
 </project>

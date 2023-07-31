@@ -5,25 +5,29 @@ import by.itacademy.bootcamp.entity.User;
 import by.itacademy.bootcamp.services.api.IUserService;
 import by.itacademy.bootcamp.util.buider.UserBuilder;
 import by.itacademy.bootcamp.util.dto.InputDto;
-import by.itacademy.bootcamp.util.mapper.api.IMapUser;
+import by.itacademy.bootcamp.util.mapper.api.IMap;
 import by.itacademy.bootcamp.util.page.OutUserDto;
+import by.itacademy.bootcamp.util.role.Roles;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.UUID;
+import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
+@Log4j2
 public class UserService implements IUserService {
     @Autowired
-    public UserService(IUserStorage userStorage, IMapUser iMap) {
+    public UserService(IUserStorage userStorage, IMap iMap) {
         this.userStorage = userStorage;
         this.iMap = iMap;
     }
 
     private final IUserStorage userStorage;
-    private final IMapUser iMap;
+    private final IMap iMap;
 
     @Override
     public User create(InputDto iDto) {
@@ -34,7 +38,7 @@ public class UserService implements IUserService {
                 .setSurname(iDto.getSurname())
                 .setPatronymic(iDto.getPatronymic())
                 .setEmail(iDto.getEmail())
-                .setRole(iDto.getRole())
+                .setRole(Roles.CUSTOMER_USER)
                 .build());
     }
 
