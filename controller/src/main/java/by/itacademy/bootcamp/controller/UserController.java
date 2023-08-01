@@ -29,16 +29,16 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<String> addUser(@Valid @RequestBody InputDto inputDto) {
-        if(!StringValidator.isValidString40(inputDto.getSurname())){
+        if (!StringValidator.isValidString40(inputDto.getSurname())) {
             throw new IllegalArgumentException("Surname is invalid");
         }
-        if(!StringValidator.isValidString20(inputDto.getName())){
+        if (!StringValidator.isValidString20(inputDto.getName())) {
             throw new IllegalArgumentException("Name is invalid");
         }
-        if(!StringValidator.isValidString40(inputDto.getPatronymic())){
+        if (!StringValidator.isValidString40(inputDto.getPatronymic())) {
             throw new IllegalArgumentException("Patronymic is invalid");
         }
-        if(!EmailValidator.isValidEmail(inputDto.getEmail())){
+        if (!EmailValidator.isValidEmail(inputDto.getEmail())) {
             throw new IllegalArgumentException("Email is invalid");
         }
 
@@ -47,8 +47,8 @@ public class UserController {
     }
 
     @GetMapping
-    public ResponseEntity<Page> getUsers( @RequestParam int page,
-                                               @RequestParam int size) {
+    public ResponseEntity<Page> getUsers(@RequestParam int page,
+                                         @RequestParam int size) {
         Pageable pageable = PageRequest.of(page, size);
         Page<OutUserDto> user = service.read(pageable);
         return new ResponseEntity<>(user, HttpStatus.OK);

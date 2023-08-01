@@ -13,6 +13,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
+
 import java.util.*;
 
 @Service
@@ -29,7 +30,7 @@ public class UserService implements IUserService {
 
     @Override
     public User create(InputDto iDto) {
-       return userStorage.save(UserBuilder
+        return userStorage.save(UserBuilder
                 .create()
                 .setId(UUID.randomUUID().toString())
                 .setName(iDto.getName())
