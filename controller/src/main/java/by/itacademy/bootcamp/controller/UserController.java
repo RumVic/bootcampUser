@@ -3,8 +3,7 @@ package by.itacademy.bootcamp.controller;
 import by.itacademy.bootcamp.services.api.IService;
 import by.itacademy.bootcamp.util.dto.InputDto;
 import by.itacademy.bootcamp.util.page.OutUserDto;
-import by.itacademy.bootcamp.util.validation.EmailValidator;
-import by.itacademy.bootcamp.util.validation.StringValidator;
+import by.itacademy.bootcamp.util.validation.UserValidator;
 import lombok.AllArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.data.domain.Page;
@@ -29,19 +28,7 @@ public class UserController {
 
     @PostMapping
     public ResponseEntity<String> addUser(@Valid @RequestBody InputDto inputDto) {
-        if (!StringValidator.isValidString40(inputDto.getSurname())) {
-            throw new IllegalArgumentException("Surname is invalid");
-        }
-        if (!StringValidator.isValidString20(inputDto.getName())) {
-            throw new IllegalArgumentException("Name is invalid");
-        }
-        if (!StringValidator.isValidString40(inputDto.getPatronymic())) {
-            throw new IllegalArgumentException("Patronymic is invalid");
-        }
-        if (!EmailValidator.isValidEmail(inputDto.getEmail())) {
-            throw new IllegalArgumentException("Email is invalid");
-        }
-
+        UserValidator.isValidUserDTO(inputDto);
         service.create(inputDto);
         return new ResponseEntity<>(CREATED, HttpStatus.CREATED);
     }
