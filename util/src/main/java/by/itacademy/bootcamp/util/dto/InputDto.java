@@ -29,7 +29,7 @@ public class InputDto implements IDto {
     @Pattern(regexp = "^[a-zA-Z]+$", message = "patronymic can include only Latin letters")
     private String patronymic;
 
-    @Size(max = 50 , message = "name length must be no more than 50 characters ")
+    @Size(max = 50 , message = "email length must be no more than 50 characters ")
     @Pattern(regexp = "^[\\w-\\+]+(\\.[\\w]+)*@[\\w-]+(\\.[\\w]+)*(\\.[a-z]{2,})$", message = "Email invalid")
     private String email;
 
