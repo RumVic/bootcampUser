@@ -25,7 +25,7 @@ public class UserController {
     private final IService service;
 
     @PostMapping
-    public ResponseEntity<String> addUser(@RequestBody @Valid InputDto inputDto,  BindingResult result)  {
+    public ResponseEntity<String> addUser(@RequestBody @Valid InputDto inputDto, BindingResult result) {
         if (result.hasErrors()) {
             StringBuilder errors = new StringBuilder();
             result.getFieldErrors().forEach(error -> errors.append(error.getDefaultMessage()).append("; "));

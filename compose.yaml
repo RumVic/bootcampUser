@@ -27,6 +27,7 @@ services:
       PMA_PORT: 3306
 
   app:
+    container_name: bootcampUser
     depends_on:
       - mysql
     build: ./
